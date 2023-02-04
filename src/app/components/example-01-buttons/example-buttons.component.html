@@ -1,1 +1,53 @@
-<p>example-buttons works!</p>
+<h3 *ngIf="!showCorrect" class="question">
+  Which of the buttons is the <em class="emphasis">most accessible?</em>
+</h3>
+<h3 *ngIf="showCorrect" class="question">
+  The <em class="emphasis">middle</em> button is the most accessible!
+</h3>
+<div class="buttons-container">
+  <span
+    role="button"
+    aria-label="Add to cart"
+    class="button-example"
+    [class.wrong]="showCorrect"
+    (click)="clickHandler()"
+  >
+    Add to cart
+
+    <img
+      src="/assets/icons/shopping-cart.svg"
+      alt="Shopping cart icon"
+      height="24px"
+      width="24px"
+    />
+  </span>
+  <button
+    class="button-example"
+    [class.correct]="showCorrect"
+    (click)="clickHandler()"
+  >
+    Add to cart
+
+    <img
+      aria-hidden="true"
+      src="/assets/icons/shopping-cart.svg"
+      alt="Shopping cart icon"
+      height="24px"
+      width="24px"
+    />
+  </button>
+  <button
+    class="button-example"
+    [class.wrong]="showCorrect"
+    (click)="clickHandler()"
+  >
+    Add to cart
+
+    <img
+      src="/assets/icons/shopping-cart.svg"
+      alt="Shopping cart icon"
+      height="24px"
+      width="24px"
+    />
+  </button>
+</div>

@@ -6,4 +6,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./example-buttons.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExampleButtonsComponent {}
+export class ExampleButtonsComponent {
+  public showCorrect = false;
+
+  public clickHandler = (): void => {
+    this.showCorrect = true;
+  };
+}
