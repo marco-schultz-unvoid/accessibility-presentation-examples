@@ -8,13 +8,12 @@
   font-size: 1rem;
 
   display: flex;
-  position: relative;
 
   .example-navigation-buttons {
     display: flex;
     gap: 16px;
 
-    position: absolute;
+    position: fixed;
     right: 16px;
     bottom: 16px;
 
