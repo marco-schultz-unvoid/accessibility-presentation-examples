@@ -1,0 +1,31 @@
+:host {
+  background-color: #444;
+  color: #eee;
+  width: 100%;
+  height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+
+  display: flex;
+  position: relative;
+
+  .example-navigation-buttons {
+    display: flex;
+    gap: 16px;
+
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+
+    &_button {
+      background-color: #000088;
+      border-radius: 4px;
+      width: 156px;
+      height: 64px;
+
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+}
