@@ -1,0 +1,31 @@
+:host {
+  margin: auto;
+  display: flex;
+  gap: 8px;
+
+  .open-modal-button {
+    padding: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background-color: #002088;
+    border-radius: 4px;
+
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.wrong {
+      background-color: #d30000;
+    }
+
+    &.correct {
+      background-color: #009400;
+    }
+  }
+}

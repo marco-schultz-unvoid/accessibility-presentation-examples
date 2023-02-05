@@ -1,3 +1,23 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+/* Modals */
+.modal-backdrop {
+  background: rgb(#100f11, 50%); // var(--primary-black-color); with 50% opacity
+}
+
+.modal-panel {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+
+  overflow: auto;
+}
+
+.cdk-global-scrollblock {
+  overflow: auto;
+}
+
 /* CSS reset */
 * {
   -webkit-overflow-scrolling: touch;
