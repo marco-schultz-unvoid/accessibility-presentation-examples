@@ -1,4 +1,11 @@
 <button class="open-modal-button wrong" (click)="openBadModal()">
   Bad A11y modal
 </button>
-<button class="open-modal-button correct">Good A11y modal</button>
+<button
+  #goodModalBtn
+  class="open-modal-button correct"
+  (click)="openGoodModal()"
+  aria-label="Open good accessibility modal"
+>
+  Good A11y modal
+</button>

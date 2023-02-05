@@ -1,6 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 import { ModalService } from 'src/app/services/modal';
 import { ModalBadComponent } from '../modal-bad/modal-bad.component';
+import { ModalGoodComponent } from '../modal-good/modal-good.component';
 
 @Component({
   selector: 'accessibily-presentation-example-modal',
@@ -9,13 +16,19 @@ import { ModalBadComponent } from '../modal-bad/modal-bad.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExampleModalComponent {
+  @ViewChild('goodModalBtn') public goodModalBtn!: ElementRef<HTMLElement>;
+
   constructor(private readonly _modalService: ModalService) {}
 
   public async openBadModal(): Promise<void> {
-    const modalReference = this._modalService.open(ModalBadComponent);
+    this._modalService.open(ModalBadComponent);
+  }
+
+  public async openGoodModal(): Promise<void> {
+    const modalReference = this._modalService.open(ModalGoodComponent);
 
     // Refocus on the button that opened the modal when it closes
-    // await firstValueFrom(modalReference.data$);
-    // this.techTalkBtn.nativeElement.focus();
+    await firstValueFrom(modalReference.data$);
+    this.goodModalBtn.nativeElement.focus();
   }
 }
