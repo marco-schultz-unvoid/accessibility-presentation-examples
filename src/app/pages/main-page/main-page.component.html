@@ -1,9 +1,25 @@
-<!-- <accessibily-presentation-example-buttons></accessibily-presentation-example-buttons> -->
-<!-- <accessibily-presentation-example-modal></accessibily-presentation-example-modal> -->
-<accessibily-presentation-example-navigation></accessibily-presentation-example-navigation>
+<accessibily-presentation-example-buttons
+  *ngIf="currentExample === 0"
+></accessibily-presentation-example-buttons>
+<accessibily-presentation-example-modal
+  *ngIf="currentExample === 1"
+></accessibily-presentation-example-modal>
+<!-- <accessibily-presentation-example-navigation></accessibily-presentation-example-navigation> -->
 
 <!-- Example navigation -->
 <div class="example-navigation-buttons">
-  <button class="example-navigation-buttons_button previous">Previous</button>
-  <button class="example-navigation-buttons_button next">Next</button>
+  <button
+    *ngIf="!isFirstExample()"
+    class="example-navigation-buttons_button previous"
+    (click)="previousExample()"
+  >
+    Previous
+  </button>
+  <button
+    *ngIf="!isLastExample()"
+    class="example-navigation-buttons_button next"
+    (click)="nextExample()"
+  >
+    Next
+  </button>
 </div>

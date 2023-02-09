@@ -6,4 +6,17 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./main-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainPageComponent {}
+export class MainPageComponent {
+  currentExample = 0;
+
+  public isFirstExample = (): boolean => this.currentExample === 0;
+  public isLastExample = (): boolean => this.currentExample === 1;
+
+  public previousExample = (): void => {
+    this.currentExample -= 1;
+  };
+
+  public nextExample = (): void => {
+    this.currentExample += 1;
+  };
+}
