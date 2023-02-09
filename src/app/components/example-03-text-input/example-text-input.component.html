@@ -9,7 +9,7 @@
       type="text"
       class="text-input"
       placeholder="John Doe"
-      (keydown.enter)="focusEmailInput()"
+      (keyup.enter)="focusEmailInput()"
     />
   </div>
   <div class="form-field">
@@ -22,10 +22,13 @@
       type="text"
       class="text-input"
       placeholder="your@email.com"
+      (keyup.enter)="focusSubmitButton()"
     />
   </div>
   <button
+    #submitButton
     aria-label="Submit form"
+    type="button"
     class="submit-button"
     (click)="submitHandler()"
   >

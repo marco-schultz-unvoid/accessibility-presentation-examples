@@ -17,6 +17,7 @@ import { requiredAfterTrimValidator } from 'src/app/utils/validators/requiredAft
 export class ExampleTextInputComponent implements AfterViewInit {
   @ViewChild('nameInput') nameInput!: ElementRef<HTMLElement>;
   @ViewChild('emailInput') emailInput!: ElementRef<HTMLElement>;
+  @ViewChild('submitButton') submitButton!: ElementRef<HTMLElement>;
 
   public form = this._fb.group({
     name: this._fb.control('', [
@@ -43,6 +44,10 @@ export class ExampleTextInputComponent implements AfterViewInit {
   }
   focusEmailInput(): void {
     this.emailInput.nativeElement.focus();
+  }
+  focusSubmitButton(): void {
+    console.log('OH shit');
+    this.submitButton.nativeElement.focus();
   }
 
   submitHandler(): void {
