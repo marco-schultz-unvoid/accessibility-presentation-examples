@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainPageComponent } from './main-page.component';
+import { NgModule } from '@angular/core';
 import { ExampleButtonsModule } from 'src/app/components/example-01-buttons/example-buttons.module';
 import { ExampleModalModule } from 'src/app/components/example-02-modal/example-modal.module';
-import { ExampleNavigationModule } from 'src/app/components/example-03-navigation/example-navigation.module';
+import { ExampleTextInputModule } from 'src/app/components/example-03-text-input/example-text-input.module';
+import { MainPageComponent } from './main-page.component';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -11,7 +11,7 @@ import { ExampleNavigationModule } from 'src/app/components/example-03-navigatio
     CommonModule,
     ExampleButtonsModule,
     ExampleModalModule,
-    ExampleNavigationModule,
+    ExampleTextInputModule,
   ],
   exports: [MainPageComponent],
 })

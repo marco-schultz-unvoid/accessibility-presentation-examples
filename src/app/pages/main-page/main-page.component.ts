@@ -10,7 +10,7 @@ export class MainPageComponent {
   currentExample = 0;
 
   public isFirstExample = (): boolean => this.currentExample === 0;
-  public isLastExample = (): boolean => this.currentExample === 1;
+  public isLastExample = (): boolean => this.currentExample === 2;
 
   public previousExample = (): void => {
     this.currentExample -= 1;
