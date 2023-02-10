@@ -1,7 +1,7 @@
 <form class="form" [formGroup]="form">
   <!-- Name field -->
-  <div class="form-field">
-    <label for="name" class="form-field-label">Name*</label>
+  <div class="form-field" required>
+    <label for="name" class="form-field-label">Name</label>
     <input
       #nameInput
       id="name"
@@ -25,8 +25,8 @@
   </div>
 
   <!-- Email field -->
-  <div class="form-field">
-    <label for="email" class="form-field-label">Email*</label>
+  <div class="form-field" required>
+    <label for="email" class="form-field-label">Email</label>
     <input
       #emailInput
       id="email"

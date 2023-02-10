@@ -63,12 +63,7 @@ export class FormGoodComponent implements AfterViewInit {
       Validators.maxLength(50),
       requiredAfterTrimValidator,
     ]),
-    website: this._fb.control('', [
-      Validators.required,
-      urlValidator,
-      Validators.maxLength(50),
-      requiredAfterTrimValidator,
-    ]),
+    website: this._fb.control('', [urlValidator, Validators.maxLength(50)]),
   });
 
   /* Helpers */

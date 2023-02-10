@@ -1,1 +1,61 @@
-<p>form-bad works!</p>
+<form class="form" [formGroup]="form">
+  <!-- Name field -->
+  <div class="form-field">
+    <label for="name" class="form-field-label">Name*</label>
+    <input
+      #nameInput
+      id="name"
+      name="name"
+      [formControl]="form.controls.name"
+      type="text"
+      class="text-input"
+      placeholder="John Doe"
+    />
+    <p *ngIf="shouldShowError(form.controls.name)" class="invalid-message">
+      {{ getErrorMessage(form.controls.name) }}
+    </p>
+  </div>
+
+  <!-- Email field -->
+  <div class="form-field">
+    <label for="email" class="form-field-label">Email*</label>
+    <input
+      id="email"
+      name="email"
+      [formControl]="form.controls.email"
+      type="text"
+      class="text-input"
+      placeholder="your@email.com"
+    />
+    <p *ngIf="shouldShowError(form.controls.email)" class="invalid-message">
+      {{ getErrorMessage(form.controls.email) }}
+    </p>
+  </div>
+
+  <!-- Website field -->
+  <div class="form-field">
+    <label for="website" class="form-field-label">Website</label>
+    <input
+      id="website"
+      name="website"
+      [formControl]="form.controls.website"
+      type="text"
+      class="text-input"
+      placeholder="www.yourwebsite.com"
+    />
+    <p *ngIf="shouldShowError(form.controls.website)" class="invalid-message">
+      {{ getErrorMessage(form.controls.website) }}
+    </p>
+  </div>
+
+  <!-- Submit button -->
+  <button
+    #submitButton
+    aria-label="Submit form"
+    type="button"
+    class="submit-button"
+    (click)="submitHandler()"
+  >
+    Save
+  </button>
+</form>

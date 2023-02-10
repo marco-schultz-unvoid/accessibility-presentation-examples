@@ -13,6 +13,15 @@
       font-weight: bold;
     }
 
+    // Inserts an asterisk after the labels of required fields
+    &[required] {
+      .form-field-label {
+        &::after {
+          content: '*';
+        }
+      }
+    }
+
     .text-input {
       background-color: #eee;
       color: #000;
