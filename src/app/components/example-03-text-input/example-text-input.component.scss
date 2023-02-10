@@ -1,43 +1,39 @@
 :host {
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
-  .form {
+  .open-form-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 24px;
+    gap: 8px;
 
-    &-field {
+    .open-form-button {
+      padding: 16px;
+
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 8px;
 
-      &-label {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      .text-input {
-        background-color: #eee;
-        color: #000;
-        border-radius: 4px;
-        padding: 8px;
-        font-size: 1.25rem;
-      }
-
-      .invalid-message {
-        color: #ff2424;
-        text-shadow: 0 0 5px #000;
-        font-size: 0.75rem;
-        font-weight: bold;
-      }
-    }
-
-    .submit-button {
-      padding: 10px 0;
       background-color: #002088;
       border-radius: 4px;
-      font-size: 1rem;
+
+      font-size: 1.25rem;
       font-weight: bold;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.awful {
+        background-color: #d30000;
+      }
+      &.bad {
+        background-color: #d33c00;
+      }
+      &.good {
+        background-color: #009400;
+      }
     }
   }
 }

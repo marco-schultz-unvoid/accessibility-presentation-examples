@@ -13,7 +13,7 @@
       aria-required="true"
       [attr.aria-invalid]="shouldShowError(form.controls.name)"
       aria-describedby="name-invalid-message"
-      (keydown.enter)="focusField(1)"
+      (keyup.enter)="focusField(1)"
     />
     <p
       *ngIf="shouldShowError(form.controls.name)"
@@ -38,7 +38,7 @@
       aria-required="true"
       [attr.aria-invalid]="shouldShowError(form.controls.email)"
       aria-describedby="email-invalid-message"
-      (keydown.enter)="focusField(2)"
+      (keyup.enter)="focusField(2)"
     />
     <p
       *ngIf="shouldShowError(form.controls.email)"
@@ -63,7 +63,7 @@
       aria-required="true"
       [attr.aria-invalid]="shouldShowError(form.controls.website)"
       aria-describedby="website-invalid-message"
-      (keydown.enter)="focusSubmitButton()"
+      (keyup.enter)="focusSubmitButton()"
     />
     <p
       *ngIf="shouldShowError(form.controls.website)"
@@ -73,6 +73,8 @@
       {{ getErrorMessage(form.controls.website) }}
     </p>
   </div>
+
+  <!-- Submit button -->
   <button
     #submitButton
     aria-label="Submit form"

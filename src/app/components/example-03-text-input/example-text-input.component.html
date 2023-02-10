@@ -1,1 +1,27 @@
-<accessibily-presentation-form-good></accessibily-presentation-form-good>
+<!-- Forms -->
+<accessibily-presentation-form-awful
+  *ngIf="openedForm === 'awful'"
+></accessibily-presentation-form-awful>
+<accessibily-presentation-form-bad
+  *ngIf="openedForm === 'bad'"
+></accessibily-presentation-form-bad>
+<accessibily-presentation-form-good
+  *ngIf="openedForm === 'good'"
+></accessibily-presentation-form-good>
+
+<!-- Open buttons -->
+<div class="open-form-buttons">
+  <button class="open-form-button awful" (click)="openForm('awful')">
+    Awful A11y modal
+  </button>
+  <button class="open-form-button bad" (click)="openForm('bad')">
+    Bad A11y modal
+  </button>
+  <button
+    class="open-form-button good"
+    (click)="openForm('good')"
+    aria-label="Open good accessibility form"
+  >
+    Good A11y modal
+  </button>
+</div>
