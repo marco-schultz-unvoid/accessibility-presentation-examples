@@ -3,7 +3,6 @@
   <div class="form-field">
     <label for="name" class="form-field-label">Name*</label>
     <input
-      #nameInput
       id="name"
       name="name"
       [formControl]="form.controls.name"
@@ -50,7 +49,6 @@
 
   <!-- Submit button -->
   <button
-    #submitButton
     aria-label="Submit form"
     type="button"
     class="submit-button"

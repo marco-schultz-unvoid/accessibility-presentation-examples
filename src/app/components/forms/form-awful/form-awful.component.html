@@ -1,1 +1,57 @@
-<p>form-awful works!</p>
+<form class="form" [formGroup]="form">
+  <!-- Name field -->
+  <div class="form-field">
+    <input
+      #nameInput
+      id="name"
+      name="name"
+      [formControl]="form.controls.name"
+      type="text"
+      class="text-input"
+      placeholder="Name*"
+    />
+    <p *ngIf="shouldShowError(form.controls.name)" class="invalid-message">
+      {{ getErrorMessage(form.controls.name) }}
+    </p>
+  </div>
+
+  <!-- Email field -->
+  <div class="form-field">
+    <input
+      id="email"
+      name="email"
+      [formControl]="form.controls.email"
+      type="text"
+      class="text-input"
+      placeholder="Email*"
+    />
+    <p *ngIf="shouldShowError(form.controls.email)" class="invalid-message">
+      {{ getErrorMessage(form.controls.email) }}
+    </p>
+  </div>
+
+  <!-- Website field -->
+  <div class="form-field">
+    <input
+      id="website"
+      name="website"
+      [formControl]="form.controls.website"
+      type="text"
+      class="text-input"
+      placeholder="Website"
+    />
+    <p *ngIf="shouldShowError(form.controls.website)" class="invalid-message">
+      {{ getErrorMessage(form.controls.website) }}
+    </p>
+  </div>
+
+  <!-- Submit button -->
+  <button
+    #submitButton
+    type="button"
+    class="submit-button"
+    (click)="submitHandler()"
+  >
+    Save
+  </button>
+</form>
