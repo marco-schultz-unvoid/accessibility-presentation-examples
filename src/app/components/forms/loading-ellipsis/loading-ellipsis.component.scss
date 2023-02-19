@@ -1,0 +1,54 @@
+$animation-duration: 1000ms;
+
+$dark-color: #002cbd;
+$normal-color: #002088;
+$bright-color: #001763;
+
+@keyframes color-change {
+  0% {
+    background-color: $dark-color;
+  }
+
+  50% {
+    background-color: $normal-color;
+  }
+
+  100% {
+    background-color: $bright-color;
+  }
+}
+
+.container {
+  display: flex;
+  gap: 2px;
+}
+
+.ellipsis {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+
+  animation: color-change $animation-duration infinite;
+
+  &-left {
+    background-color: $bright-color;
+  }
+
+  &-center {
+    background-color: $normal-color;
+    animation-delay: calc($animation-duration / 3);
+  }
+
+  &-right {
+    background-color: $dark-color;
+    animation-delay: calc(($animation-duration / 3) * 2);
+  }
+}
+
+// Above 1024px
+@media only screen and (min-width: 1024px) {
+  .ellipsis {
+    height: 15px;
+    width: 15px;
+  }
+}

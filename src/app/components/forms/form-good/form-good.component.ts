@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -7,6 +8,8 @@ import {
 } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { List } from 'immutable';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { ModalService } from 'src/app/services/modal';
 import { FormControlWithElement } from 'src/app/types/forms';
 import { focusFirstInvalidField } from 'src/app/utils/functions/focus';
 import {
@@ -16,6 +19,7 @@ import {
 } from 'src/app/utils/functions/forms';
 import { requiredAfterTrimValidator } from 'src/app/utils/validators/requiredAfterTrim';
 import { urlValidator } from 'src/app/utils/validators/url';
+import { ModalGoodComponent } from '../../modal-good/modal-good.component';
 
 @Component({
   selector: 'accessibily-presentation-form-good',
@@ -31,6 +35,9 @@ export class FormGoodComponent implements AfterViewInit {
   private readonly _websiteInput!: ElementRef<HTMLElement>;
   @ViewChild('submitButton')
   private readonly _submitButton!: ElementRef<HTMLElement>;
+
+  private _isSaving$ = new BehaviorSubject<boolean>(false);
+  public isSaving$ = this._isSaving$.asObservable();
 
   /* Input fields with their elements */
   public get inputFields(): List<FormControlWithElement> {
@@ -75,16 +82,17 @@ export class FormGoodComponent implements AfterViewInit {
     this.focusFirstInput();
   }
 
-  constructor(private readonly _fb: NonNullableFormBuilder) {}
+  constructor(
+    private readonly _fb: NonNullableFormBuilder,
+    private readonly _httpClient: HttpClient,
+    private readonly _modalService: ModalService
+  ) {}
 
   /* Submit */
-  submitHandler(): void {
-    const { name, email, website } = this.form.controls;
-
+  public async submitHandler(): Promise<void> {
     if (this.form.valid) {
-      alert(
-        `Name: ${name.value},\nEmail: ${email.value},\nWebsite: ${website.value}`
-      );
+      this._isSaving$.next(true);
+
       return void 0;
     }
 
@@ -104,7 +112,7 @@ export class FormGoodComponent implements AfterViewInit {
   public focusFirstInvalid = (): void =>
     focusFirstInvalidField(this.inputFields);
 
-  focusSubmitButton(): void {
+  public focusSubmitButton(): void {
     this._submitButton.nativeElement.focus();
   }
 }

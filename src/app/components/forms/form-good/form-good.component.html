@@ -13,7 +13,7 @@
       aria-required="true"
       [attr.aria-invalid]="shouldShowError(form.controls.name)"
       aria-describedby="name-invalid-message"
-      (keyup.enter)="focusField(1)"
+      (keydown.enter)="focusField(1)"
     />
     <p
       *ngIf="shouldShowError(form.controls.name)"
@@ -38,7 +38,7 @@
       aria-required="true"
       [attr.aria-invalid]="shouldShowError(form.controls.email)"
       aria-describedby="email-invalid-message"
-      (keyup.enter)="focusField(2)"
+      (keydown.enter)="focusField(2)"
     />
     <p
       *ngIf="shouldShowError(form.controls.email)"
@@ -63,7 +63,7 @@
       aria-required="true"
       [attr.aria-invalid]="shouldShowError(form.controls.website)"
       aria-describedby="website-invalid-message"
-      (keyup.enter)="focusSubmitButton()"
+      (keydown.enter)="focusSubmitButton()"
     />
     <p
       *ngIf="shouldShowError(form.controls.website)"
@@ -77,6 +77,7 @@
   <!-- Submit button -->
   <button
     #submitButton
+    *ngIf="(isSaving$ | async) === false"
     aria-label="Submit form"
     type="button"
     class="submit-button"
@@ -84,4 +85,7 @@
   >
     Save
   </button>
+  <accessibily-presentation-loading-ellipsis
+    *ngIf="isSaving$ | async"
+  ></accessibily-presentation-loading-ellipsis>
 </form>
