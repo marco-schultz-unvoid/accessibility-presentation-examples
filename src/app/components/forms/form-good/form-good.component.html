@@ -1,3 +1,7 @@
+<p *ngIf="hasFailed$ | async" aria-live="assertive" class="error-message">
+  Failed to submit form!
+</p>
+
 <form class="form" [formGroup]="form">
   <!-- Name field -->
   <div class="form-field" required>

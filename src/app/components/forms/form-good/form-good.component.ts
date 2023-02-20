@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { List } from 'immutable';
-import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { ModalService } from 'src/app/services/modal';
 import { FormControlWithElement } from 'src/app/types/forms';
 import { focusFirstInvalidField } from 'src/app/utils/functions/focus';
@@ -19,7 +19,6 @@ import {
 } from 'src/app/utils/functions/forms';
 import { requiredAfterTrimValidator } from 'src/app/utils/validators/requiredAfterTrim';
 import { urlValidator } from 'src/app/utils/validators/url';
-import { ModalGoodComponent } from '../../modal-good/modal-good.component';
 
 @Component({
   selector: 'accessibily-presentation-form-good',
@@ -38,6 +37,8 @@ export class FormGoodComponent implements AfterViewInit {
 
   private _isSaving$ = new BehaviorSubject<boolean>(false);
   public isSaving$ = this._isSaving$.asObservable();
+  private _hasFailed$ = new BehaviorSubject<boolean>(false);
+  public hasFailed$ = this._hasFailed$.asObservable();
 
   /* Input fields with their elements */
   public get inputFields(): List<FormControlWithElement> {
@@ -89,9 +90,15 @@ export class FormGoodComponent implements AfterViewInit {
   ) {}
 
   /* Submit */
-  public async submitHandler(): Promise<void> {
+  public submitHandler(): void {
     if (this.form.valid) {
+      this._hasFailed$.next(false);
       this._isSaving$.next(true);
+
+      setTimeout(() => {
+        this._isSaving$.next(false);
+        this._hasFailed$.next(true);
+      }, 4000);
 
       return void 0;
     }
