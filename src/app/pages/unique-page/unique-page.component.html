@@ -1,0 +1,28 @@
+<form [attr.aria-labelledby]="formTitleId" class="form">
+  <header>
+    <h1 [attr.id]="formTitleId" class="form-title">Registration</h1>
+  </header>
+  <!-- Name field -->
+  <div class="form-field">
+    <label [attr.for]="nameInputId" class="form-field-label">Name</label>
+    <input
+      [attr.id]="nameInputId"
+      name="name"
+      type="text"
+      class="text-input"
+      placeholder="John Doe"
+    />
+  </div>
+
+  <!-- Email field -->
+  <div class="form-field">
+    <label [attr.for]="emailInputId" class="form-field-label">Email</label>
+    <input
+      [attr.id]="emailInputId"
+      name="email"
+      type="text"
+      class="text-input"
+      placeholder="your@email.com"
+    />
+  </div>
+</form>
