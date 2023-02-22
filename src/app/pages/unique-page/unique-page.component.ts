@@ -19,8 +19,8 @@ export class UniquePageComponent implements AfterContentInit {
   constructor(private readonly _unique: UniqueService) {}
 
   public ngAfterContentInit(): void {
-    this.formTitleId = this._unique.id();
-    this.nameInputId = this._unique.id();
-    this.emailInputId = this._unique.id();
+    this.formTitleId = this._unique.id('form-title');
+    this.nameInputId = this._unique.id('form-input');
+    this.emailInputId = this._unique.id('form-input');
   }
 }
